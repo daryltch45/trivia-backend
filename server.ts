@@ -22,7 +22,7 @@ const mongoDbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/trivia'
 console.log(mongoDbUri);
 const db = mongoose.connect(mongoDbUri, {
     connectTimeoutMS: 1000,
-    tlsCAFile: (process.env.NODE_ENV == 'production' ? 'global-bundle.pem': undefined)
+    tlsCAFile: (process.env.NODE_ENV == 'production' ? 'global-bundle.pem': undefined) // AWS CA bundle
 });
 db.catch((err) => {
     console.log(`Failed to connect to mongodb: ${mongoDbUri}`)
